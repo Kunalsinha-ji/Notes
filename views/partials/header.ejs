@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Common styles for body and html */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #141414;
+            /* Dark background */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styles for header */
+        header {
+            width: 100%;
+            background-color: #000;
+            padding: 1rem 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: #FF4500;
+            /* Orange-red */
+            margin: 0;
+        }
+
+        /* Styles for navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar li {
+            margin-right: 15px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #FF4500;
+            /* Orange-red on hover */
+        }
+
+        /* Styles for notes */
+        .notes-container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            justify-items: center;
+            margin-top: 300px;
+            /* Adjust as needed */
+        }
+
+        .note {
+            background: linear-gradient(135deg, rgba(33, 33, 33, 0.8), rgba(33, 33, 33, 0.9));
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Align items to top and bottom */
+        }
+
+        .note:hover {
+            transform: translateY(-5px);
+        }
+
+        .note h2 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF4500;
+            /* Orange-red */
+        }
+
+        .note p {
+            color: #ccc;
+        }
+
+        .note-buttons {
+            margin-top: auto;
+            /* Push buttons to bottom */
+            display: flex;
+            justify-content: center;
+        }
+
+        .note-buttons button {
+            padding: 0.5rem 1rem;
+            margin: 0 1rem;
+            border: none;
+            background: none;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .note-buttons button:hover {
+            color: #FF4500;
+            /* Orange-red on hover */
+        }
+
+        /* Old header content styles */
+        .page-container {
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            margin-top: 40px;
+            background-color: #222;
+            /* Dark gray background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-container {
+            text-align: center;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .contact-info strong {
+            color: #FF4500;
+            /* Orange-red */
+        }
+
+        .contact-info a {
+            color: #FF4500;
+            /* Orange-red */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #fff;
+            /* White on hover */
+        }
+
+        .about-container {
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            margin-top: 40px;
+            background-color: #222;
+            /* Dark gray background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .about-container h1 {
+            font-size: 2.5rem;
+            color: #FF4500;
+            /* Orange-red */
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .about-text p {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .website-details {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .website-details h2 {
+            font-size: 1.5rem;
+            color: #FF4500;
+            /* Orange-red */
+        }
+
+        .website-details p {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .lll {
+            margin-bottom: 0.5rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5 rem;
+            font-weight: 900;
+            color: #FF4500;
+        }
+
+        .compose-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            margin-top: 100px;
+            /* Adjust as needed */
+            background-color: #222;
+            /* Dark gray background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .compose-container h2 {
+            font-size: 2rem;
+            color: #FF4500;
+            /* Orange-red */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .compose-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .compose-form label {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        .compose-form input[type="text"],
+        .compose-form textarea {
+            padding: 0.5rem;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .compose-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .compose-form button {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF4500;
+            /* Orange-red */
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .compose-form button:hover {
+            background-color: #FF6347;
+            /* Lighter shade of orange-red on hover */
+        }
+
+        .delete-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .delete-buttons button {
+            padding: 0.75rem;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF4500; /* Orange-red */
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .delete-buttons button:hover {
+            background-color: #FF6347; /* Lighter shade of orange-red on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <h1 class="lll">Alfaaz-e-bayaan</h1>
+            <ul>
+                <li><a href="/home">home</a></li>
+                <li><a href="/compose">Compose</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/signup">Signup</a></li>
+            </ul>
+        </div>
+    </header>

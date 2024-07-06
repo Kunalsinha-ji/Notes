@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Making Signup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/1600x900/?night,stars,city');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .login-container h1 {
+            margin-bottom: 1.5rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700; /* Gold */
+        }
+        .login-container form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 1px solid #FFD700; /* Gold border */
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #333;
+            background: white;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 1rem 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #FFD700; /* Gold */
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .login-container button:hover {
+            background-color: #FFC107; /* Darker gold */
+        }
+        .login-container a {
+            color: #FFD700; /* Gold */
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Alfaaz-e-bayaan</h1>
+        <form method="post" action="/signup">
+            <input type="text" placeholder="Firstname" name="firstname" required>
+            <input type="text" placeholder="Lastname" name="lastname" required>
+            <input type="text" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name = password required>
+            <button type="submit">Sign in</button>
+        </form>
+        <p>Already signed up ? <a href="/">Click here</a></p>
+    </div>
+</body>
+</html>

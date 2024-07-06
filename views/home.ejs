@@ -1,0 +1,45 @@
+<%- include('./partials/header') %>
+
+    <body>
+        <style>
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+        </style>
+        <script>
+            function showAlertFromQuery() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const message = urlParams.get('message');
+
+                if (message) {
+                    alert(decodeURIComponent(message));
+                }
+            }
+
+            window.onload = function () {
+                showAlertFromQuery();
+            };
+        </script>
+
+        <div class="notes-container">
+            <% notes.forEach(function(note) { %>
+                <% if (note.contents !==undefined && note.contents !=='undefined' ) { %>
+                    <div class="note">
+                        <h2>
+                            <%= note.title %>
+                        </h2>
+                        <p>
+                            <%= note.contents %>
+                        </p>
+                        <div class="note-buttons">
+                            <button class="edit-btn"><a href="/edit/<%= note.title %>">Edit</a></button>
+                            <button class="delete-btn"><a href="/delete/<%= note.title %>">Delete</a></button>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% }); %>
+        </div>
+    </body>
+
+    </html>

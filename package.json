@@ -1,0 +1,20 @@
+{
+  "name": "note-making",
+  "version": "1.0.0",
+  "description": "Note Making Website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kunal Sinha",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "lodash": "^4.17.21",
+    "nodemon": "^3.1.4",
+    "pg": "^8.12.0"
+  }
+}
